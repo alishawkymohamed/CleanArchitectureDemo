@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using CleanArch.Application.Interfaces;
+using CleanArch.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.WebApi.Controllers
@@ -11,5 +8,24 @@ namespace CleanArch.WebApi.Controllers
     [ApiController]
     public class CourseController : ControllerBase
     {
+        private readonly ICourseService _courseService;
+
+        public CourseController(ICourseService courseService)
+        {
+            this._courseService = courseService;
+        }
+
+        [HttpGet]
+        public IActionResult GetCourses()
+        {
+            return Ok(this._courseService.GetCourses());
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateUpdateCourseViewModel model)
+        {
+            this._courseService.Create(model);
+            return Ok(model);
+        }
     }
 }
