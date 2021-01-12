@@ -1,6 +1,7 @@
 using CleanArch.Infrastructure.Data.Context;
 using CleanArch.Infrastructure.IoC;
 using CleanArch.MVC.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -36,6 +37,8 @@ namespace CleanArch.MVC
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddMediatR(typeof(Startup));
 
             services.RegisterDependencies();
         }
