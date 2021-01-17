@@ -1,5 +1,5 @@
 ﻿using CleanArch.Domain.Core.Bus;
-using CleanArch.Domain.Core.Commands;
+using CleanArch.Domain.Core.Events;
 using MediatR;
 using System.Threading.Tasks;
 
@@ -14,7 +14,7 @@ namespace CleanArch.Infrastructure.Bus
             this._mediator = mediator;
         }
 
-        public Task SendCommand<T>(T command) where T : Command
+        public Task<T> SendCommand<T>(Message<T> command)
         {
             return this._mediator.Send(command);
         }

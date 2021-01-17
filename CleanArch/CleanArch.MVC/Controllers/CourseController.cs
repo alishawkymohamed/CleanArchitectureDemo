@@ -1,6 +1,7 @@
 ﻿using CleanArch.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CleanArch.MVC.Controllers
 {
@@ -14,9 +15,9 @@ namespace CleanArch.MVC.Controllers
             this._courseService = courseService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = this._courseService.GetCourses();
+            var model = await this._courseService.GetCourses();
             return View(model);
         }
     }

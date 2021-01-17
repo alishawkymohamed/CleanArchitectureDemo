@@ -1,13 +1,13 @@
 ﻿using CleanArch.Domain.Core.Events;
 using System;
 
-namespace CleanArch.Domain.Core.Commands
+namespace CleanArch.Domain.Core.Queries
 {
-    public abstract class Command<T> : Message<T>
+    public abstract class Query<T> : Message<T>
     {
         public DateTime TimeStamp { get; protected set; }
 
-        protected Command()
+        protected Query()
         {
             TimeStamp = DateTime.Now;
         }

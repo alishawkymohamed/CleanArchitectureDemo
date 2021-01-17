@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CleanArch.Application.ViewModels;
 using CleanArch.Domain.Commands;
+using CleanArch.Domain.Core;
 
 namespace CleanArch.Application.AutoMapper
 {

@@ -1,12 +1,18 @@
-﻿namespace CleanArch.Domain.Commands
+﻿using CleanArch.Domain.Core.Commands;
+
+namespace CleanArch.Domain.Commands
 {
-    public class CreateCourseCommand : CourseCommand
+    public class CreateCourseCommand : Command<bool>
     {
         public CreateCourseCommand(string name, string description, string imageUrl)
         {
-            base.Name = name;
-            base.Description = description;
-            base.ImageUrl = imageUrl;
+            this.Name = name;
+            this.Description = description;
+            this.ImageUrl = imageUrl;
         }
+
+        public string Name { get; protected set; }
+        public string Description { get; protected set; }
+        public string ImageUrl { get; protected set; }
     }
 }

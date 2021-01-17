@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CleanArch.Application.ViewModels;
+using CleanArch.Domain.Core;
 using CleanArch.Domain.Models;
 
 namespace CleanArch.Application.AutoMapper

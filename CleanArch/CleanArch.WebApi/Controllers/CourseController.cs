@@ -1,6 +1,7 @@
 ﻿using CleanArch.Application.Interfaces;
-using CleanArch.Application.ViewModels;
+using CleanArch.Domain.Core;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CleanArch.WebApi.Controllers
 {
@@ -16,15 +17,15 @@ namespace CleanArch.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCourses()
+        public async Task<IActionResult> GetCourses()
         {
-            return Ok(this._courseService.GetCourses());
+            return Ok(await this._courseService.GetCourses());
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateUpdateCourseViewModel model)
+        public async Task<IActionResult> Create([FromBody] CreateUpdateCourseViewModel model)
         {
-            this._courseService.Create(model);
+            await this._courseService.Create(model);
             return Ok(model);
         }
     }
